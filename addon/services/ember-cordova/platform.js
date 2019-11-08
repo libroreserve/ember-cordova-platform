@@ -21,9 +21,6 @@ const {
 */
 
 export default Ember.Service.extend({
-  navigator: window.navigator,
-  ua: navigator.userAgent,
-
   platforms: [],
 
   init() {
@@ -48,7 +45,7 @@ export default Ember.Service.extend({
     if (/iPad/i.test(window.navigator.platform)) {
       return true;
     }
-    return /iPad/i.test(window.ua);
+    return /iPad/i.test(window.navigator.userAgent);
   }),
 
   isIOS: computed(function() {
@@ -72,7 +69,7 @@ export default Ember.Service.extend({
   }),
 
   platform: Ember.computed(function() {
-    const ua = this.get('ua');
+    const ua = window.navigator.userAgent;
     let platformName;
 
     if (ua.indexOf('Edge') > -1) {
@@ -84,9 +81,9 @@ export default Ember.Service.extend({
     } else if (/iPhone|iPad|iPod/.test(ua)) {
       platformName = IOS;
     } else {
-      let navPlatform = navigator.platform;
+      let navPlatform = window.navigator.platform;
       if (navPlatform) {
-        platformName = navigator.platform.toLowerCase().split(' ')[0];
+        platformName = window.navigator.platform.toLowerCase().split(' ')[0];
       } else {
         platformName =  '';
       }
@@ -130,7 +127,9 @@ export default Ember.Service.extend({
     }
 
     // A quick hack for to check userAgent
-    return this.get('ua').toLowerCase().indexOf(type) >= 0;
+    return window.navigator.userAgent
+      .toLowerCase()
+      .indexOf(type) >= 0;
   },
 
   _setPlatforms() {
