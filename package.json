@@ -1,9 +1,12 @@
 {
   "name": "ember-cordova-platform",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "cordova",
+    "ember-cordova",
+    "ember-cordova-platform"
   ],
   "license": "MIT",
   "author": {
@@ -11,19 +14,12 @@
     "email": "alex@isleofcode.com",
     "url": "https://isleofcode.com"
   },
-
   "contributors": [
     {
       "name": "Aidan Nulman",
       "email": "aidan@isleofcode.com",
       "url": "https://isleofcode.com"
     }
-  ],
-  "keywords": [
-    "ember-addon",
-    "cordova",
-    "ember-cordova",
-    "ember-cordova-platform"
   ],
   "directories": {
     "doc": "doc",
