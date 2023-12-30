@@ -1,15 +1,11 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+import { computed } from '@ember/object';
 
 const IOS = 'ios';
 const ANDROID = 'android';
 const WINDOWS_PHONE = 'windowsphone';
 const EDGE = 'edge';
 const CROSSWALK = 'crosswalk';
-
-const {
-  Service,
-  computed
-} = Ember;
 
 /*
 
@@ -20,7 +16,7 @@ const {
 
 */
 
-export default Ember.Service.extend({
+export default Service.extend({
   platforms: [],
 
   init() {
@@ -68,7 +64,7 @@ export default Ember.Service.extend({
     return this.is(CROSSWALK);
   }),
 
-  platform: Ember.computed(function() {
+  platform: computed(function() {
     const ua = window.navigator.userAgent;
     let platformName;
 
